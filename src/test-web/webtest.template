@@ -6,10 +6,10 @@
 		#pageContainer { margin: 0.5em; }
 		h1, h2, h3, h4 { font-weight: 200; }
 		#container, #container2, #cloneTest { display: none; }
-		
+
 		.x { margin-top: 2px; }	/* required for testing computed css in minified-web-getset-test.js */
 		.hidden { display: none; } /* required for testing show() */
-	</style> 
+	</style>
 	<link rel="stylesheet" href="mocha.css" />
 
 	<script id="minifiedTemplate" type="minified-template">{{'{'+'{a}'+'}'}}</script>
@@ -17,7 +17,7 @@
 	<script type="text/javascript">
 		var q = window.location.search, undefined;
 		var isLegacyIE = (!!document.all && ![].map); // remove non-ie versions on old ie
-		
+
 		function fail(text) {
 			var e = new Error(text);
 			if (window.console) console.log(e.stack);
@@ -34,7 +34,7 @@
 			}
 			else
 				if (value != expected) {
-					if (window.console) { 
+					if (window.console) {
 						console.log("Check failed, given:", value, " expected:", expected, extraMsg?extraMsg:'');
 						if (typeof value == 'string' && typeof expected == 'string' && value.length+expected.length > 15) {
 							for (var i = 0; i<value.length && i<expected.length; i++)
@@ -47,20 +47,20 @@
 					fail("Value '"+value+"' given, but expected '"+expected+"'. " + (extraMsg?extraMsg:''));
 				}
 		}
-		
+
 		function contains(list, value, checkIdentity, extraMsg) {
 			for (var i = 0; i < list.length; i++)
 				if (list[i] === value || (!checkIdentity && list[i] == value))
 					return true;
 			fail("Can not find '"+value+"' in list. " + extraMsg?extraMsg:'');
 		}
-		
+
 		function containsAll(list, expectedValueList, checkIdentity, extraMsg) {
 			check(list.length, expectedValueList.length, 'Testing for array length' + (extraMsg?(': '+extraMsg):''));
 			for (var i = 0; i < expectedValueList.length; i++)
 				contains(list, expectedValueList[i], checkIdentity, 'Checked index='+i+'.' + (extraMsg?(': '+extraMsg):''));
 		}
-		
+
 		function forward() {
 			if (/forward/.test(q) && (isLegacyIE ? '{{nextFileLegacy}}' : '{{nextFile}}'))
 				document.location.href = isLegacyIE ? '{{nextFileLegacy}}' : '{{nextFile}}';
@@ -69,11 +69,11 @@
 	<script type="text/javascript" src="{{file}}"></script>
   	<script src="mocha.js"></script>
   	<script>
-  		var MINI = require('minified'), $ = MINI.$, $$=MINI.$$, EE = MINI.EE, HTML = MINI.HTML;
+  		var MINI = require('minified')(window), $ = MINI.$, $$=MINI.$$, EE = MINI.EE, HTML = MINI.HTML;
   		var _ = MINI._;
-  	
+
   		var isPhantomJS = /PhantomJS/.test(navigator.userAgent);
-  	
+
   		mocha.setup('bdd');
   	</script>
   	<script src="minified-web-selector-test.js"></script>
@@ -91,13 +91,13 @@
 	<body>
 		<div id="pageContainer">
 		<h2 id="title">Minified Web Test: {{file}}</h2>
-		<div><button onclick="document.location.href = 'autorun.html'; return false;">Rerun All Tests</button> 
+		<div><button onclick="document.location.href = 'autorun.html'; return false;">Rerun All Tests</button>
 		<button onclick="document.location.href = 'vistest.html'; return false;">Vistest</button></div>
 
 		<div id="mocha"></div>
-		
-		
-		
+
+
+
 		<div id="container">
 			<div id="a" class="x" style="margin-top: 5px;" title="tititi" data-x="bar" data-yy="foo">
 				<p><b>div id="a" class="x"</b></p>
@@ -128,13 +128,13 @@
 					<p>div id="c_b" class="m z"</p>
 				</div>
 			</div>
-			
+
 		</div>
 		<div id="container2">
 		</div>
 		<div id="cloneTest">
 			<div class="cloneMe">
-				<p>Test</p> 
+				<p>Test</p>
 				UglyChar: &szlig;
 				<a href="http://example.com/" title="Teest">Test</a>
 				<strong><span class="bla342">abc<code>def</code>ds</span></strong>
@@ -165,7 +165,7 @@
 	   		 	<textarea id="id1_9" name="i1_9">abc</textarea>
 	   		 	<input id="id1_10" name="i1_10"  />
 	   		 </form>
-   		 
+
 			<form id="id2" name="form2">
 				<input id="id2_1" name="i2_1" value="bb" />
 				<input id="id2_2" name="i2_2" value="bc" />
@@ -175,7 +175,7 @@
    		 	<span>test</span>
 		</div>
 
-		</div>		
+		</div>
 	</body>
 	<script type="text/javascript">
 		var failures = 0;
@@ -185,10 +185,10 @@
 				failures++;
 			});
 		};
-		
+
     	// mocha.checkLeaks(); - disable: does not work with many Chrome extensions
-    	
-    	if (!isPhantomJS) 
+
+    	if (!isPhantomJS)
 			mocha.run(function() {
 				if (failures == 0)
 					forward();

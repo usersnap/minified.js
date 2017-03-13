@@ -1,18 +1,22 @@
-Minified 
+Minified
 =========
 
 Quick Links: <a href="http://minifiedjs.com/">minifiedjs.com</a> - <a href="http://minifiedjs.com/api/">API</a> - <a href="http://minifiedjs.com/docs/">Docs</a>
 Latest version: <a href="http://minifiedjs.com/blog/2015/08/release11.html">1.1</a> (<a href="CHANGES.md">changelog</a>)
 
+ATTENTION
+-----------
+This is a modified version which allows requiring minifiedjs with a custom window instance, which is necessary if you want to use it with iframes!
+
 Overview
 ----------
-Minified.js is a client-side JavaScript library that's both powerful and small. It offers jQuery-like features (DOM manipulation, animation, 
+Minified.js is a client-side JavaScript library that's both powerful and small. It offers jQuery-like features (DOM manipulation, animation,
 events, HTTP requests) and utility functions (collections, date&amp;number formatting, date arithmetic, templates) with a single, consistent API.
-  	
+
 
 Feature Comparison
 --------------------
-The goal of Minified is to provide all the basics that you may need on an HTML page. 
+The goal of Minified is to provide all the basics that you may need on an HTML page.
 <table>
 <tr><th>Feature</th><th>Minified</th><th>Minified Web</th><th>jQuery</th><th>MooTools</th><th>Zepto.js</th></tr>
 <tr><th>CSS Selector</th><td>yes<div class="cmpExpl">CSS1 or browser engine</div></td><td>yes<div class="cmpExpl">CSS1 or browser engine</div></td><td>yes<div class="cmpExpl">CSS3 subset + extensions</div></td><td>yes<div class="cmpExpl">CSS3 subset + extensions</div></td><td>yes<div class="cmpExpl">browser engine</div></td></tr>
@@ -41,7 +45,7 @@ The goal of Minified is to provide all the basics that you may need on an HTML p
 </table>
 
 
-What you can expect from Minified Web 
+What you can expect from Minified Web
 --------------------------------------
 * General purpose functions to effectively write HTML-based web applications
 * A very small footprint. The complete distribution will always be smaller than 8kB, and the Web module under 4kb.
@@ -56,7 +60,7 @@ To build Minified, you need to install Node.js and Grunt. Then enter the Minifie
 To build the whole project including the site, use
 > grunt all
 
-If you only want to compile the code, use 
+If you only want to compile the code, use
 > grunt code
 
 
@@ -67,7 +71,7 @@ To the extent possible under law, Tim Jansen has waived all copyright and relate
 /src and /dist directories of this repository.
 See http://creativecommons.org/publicdomain/zero/1.0/ for details.
 
-Please note that some third-party content of the Minified web site, especially in the /srcContent directory, has been published under different open source licenses. 
+Please note that some third-party content of the Minified web site, especially in the /srcContent directory, has been published under different open source licenses.
 
 
 Thank you for checking out Minified.
