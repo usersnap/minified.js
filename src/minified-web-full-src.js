@@ -117,7 +117,7 @@
  * If enabled, Minified will create stubs so you can use it without an AMD framework.
  * It requires AMD's <code>define()</code> function.
  */
-if (/^u/.test(typeof define) || !define.amd) { // no AMD support available ? define a minimal version
+if (/^u/.test(typeof define)) { // no AMD support available ? define a minimal version
 	(function(def){
 		var require = this['require'] = function(name) { return def[name]; };
 		this['define'] = function(name, f) { def[name] = def[name] || f(require); };
